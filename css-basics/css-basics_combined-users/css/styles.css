@@ -114,3 +114,12 @@ aside .location {
 
   💡 You can use the display property to hide elements.
 */
+
+ul .bio {
+  display: none;
+}
+
+ul .location {
+  text-align: start;
+  color: darkslategray;
+}
