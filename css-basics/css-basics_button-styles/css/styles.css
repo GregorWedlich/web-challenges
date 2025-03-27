@@ -23,6 +23,7 @@ section {
 button {
   background-color: white;
   padding: 8px 25px;
+  width: 200px;
 }
 
 /* Your exercise starts here. */
@@ -32,18 +33,29 @@ Make sure not to put your code into the comments, because then nothing will happ
 
 .button1 {
   /* Style me! Change my border, set a border radius or try out other styles. :) */
+  border-width: 2px;
 }
 
 .button2 {
   /* Style me! Change my color or background-color, or both! You can experiment with different color formats here, like HEX, RGB, etc. */
+  background-color: rgb(1122, 122, 333);
 }
 
 .button3 {
   /* Style me! You can test out changing the font, font size, ...*/
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 600;
 }
 
 .button4 {
   /* Style me! Can you add a shadow to this button? Try playing around with shadow properties - you can even change the shadow color, size, and more. */
+  box-shadow: green 2px 3px;
 }
 
 /* Feel free to play around with other properties, too. */
+@media (max-width: 780px) {
+  body {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
