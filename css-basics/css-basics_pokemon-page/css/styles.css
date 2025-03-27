@@ -78,6 +78,13 @@ section.favourites {
 
 .subtitle {
   /* Your solution */
+  display: inline;
+  padding-inline: 6px;
+  border-inline: 3px solid gold;
+}
+
+.favourites .subtitle {
+  border-inline: 3px solid orange;
 }
 
 /* ------- List ------- */
@@ -85,14 +92,14 @@ section.favourites {
 /* Task 7: Finally, let's style our list with of favorite Pokémon. Which selector do we need? Also, add values for padding. */
 
 /* Add selector */
- {
+ul {
   list-style: "🧡";
-  padding-left: /* Add value */ ;
+  padding-left: 20px;
 }
 
 /* Add selector */
- {
-  padding-left: /* Add value */ ;
+li {
+  padding-left: 6px;
 }
 
 /* ------- The End -------- */
