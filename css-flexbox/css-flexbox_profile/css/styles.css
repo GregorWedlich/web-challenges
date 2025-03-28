@@ -19,15 +19,24 @@ h2 {
   color: #3f0097;
 }
 
+.profile {
+  display: flex;
+  flex-direction: column;
+}
+
 .profile__image {
+  align-self: center;
   object-fit: cover;
   border-radius: 999px;
   aspect-ratio: 1 / 1;
   border: solid #3f0097 1px;
-  max-width: 50%;
+  /* max-width: 50%; */
 }
 
 .tech-stack__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   list-style: none;
   padding-left: 0;
 }
