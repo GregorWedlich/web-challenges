@@ -112,3 +112,12 @@ h1 {
     height: 100px;
   }
 }
+
+@media (orientation: landscape) {
+  .box--three {
+    background-color: lightpink;
+
+    width: 250px;
+    height: 50px;
+  }
+}
