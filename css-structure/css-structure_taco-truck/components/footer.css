@@ -1,0 +1,13 @@
+.footer-container {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  background-color: var(--header-bg);
+}
+
+.footer-container__list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}

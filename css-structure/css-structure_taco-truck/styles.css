@@ -2,6 +2,7 @@
 @import "./components/card.css";
 @import "./components/header.css";
 @import "./components/main.css";
+@import "./components/footer.css";
 
 /* -------------------------------------------------------- */
 /* Global Styles */
@@ -19,4 +20,18 @@ body {
   margin: 0;
   font-family: system-ui, sans-serif;
   background: var(--body-bg);
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
