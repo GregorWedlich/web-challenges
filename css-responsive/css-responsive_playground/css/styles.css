@@ -69,7 +69,7 @@ h1 {
 .box--two {
   background-color: lightgreen;
 
-  width: 100px;
+  width: 7em;
   height: 100px;
 }
 
@@ -93,4 +93,22 @@ h1 {
 
 .box--five img {
   width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .box--two {
+    background-color: lightgreen;
+
+    width: 200px;
+    height: 100px;
+  }
+}
+
+@media screen and (min-width: 1199px) {
+  .box--two {
+    background-color: lightgreen;
+
+    width: 400px;
+    height: 100px;
+  }
 }
