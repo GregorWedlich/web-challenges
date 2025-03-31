@@ -239,11 +239,33 @@ body {
 CSS based on conditions such as viewport width, etc. */
 
 /* Media Query Tablet */
-/* --- */
-/* Replace this comment with your media query. */
-/* --- */
+@media (min-width: 600px) {
+  .card-section {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
-/* Media Query Desktop */
-/* --- */
-/* Replace this comment with your media query. */
-/* --- */
+  .product-card {
+    width: 48%;
+  }
+
+  .intro-text {
+    width: 48%;
+  }
+
+  .intro-text {
+    align-self: flex-start;
+  }
+}
+
+/* Media Query Desktop, and yes i can make it easier with grid :) */
+@media (min-width: 1024px) {
+  .card-section > :first-child {
+    width: 100vw;
+  }
+
+  .card-section > :last-child {
+    width: 40vw;
+  }
+}
