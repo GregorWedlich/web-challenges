@@ -261,6 +261,10 @@ CSS based on conditions such as viewport width, etc. */
 
 /* Media Query Desktop, and yes i can make it easier with grid :) */
 @media (min-width: 1024px) {
+  .main-content {
+    padding-top: 0;
+  }
+
   .card-section > :first-child {
     width: 100vw;
   }
