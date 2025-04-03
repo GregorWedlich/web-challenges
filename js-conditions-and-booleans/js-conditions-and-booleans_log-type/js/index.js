@@ -1,17 +1,11 @@
-const data = "";
+const data = [];
 
 switch (typeof data) {
   case "undefined":
     console.log("The variable 'data' is undefined!");
     break;
-  case "null":
-    console.log("The variable 'data' is null!");
-    break;
   case "number":
     console.log("The variable 'data' is a number!");
-    break;
-  case "NaN":
-    console.log("The variable 'data' is not a number!");
     break;
   case "string":
     console.log("The variable 'data' is a string!");
@@ -20,22 +14,20 @@ switch (typeof data) {
     console.log("The variable 'data' is a boolean!");
     break;
   case "object":
-    console.log("The variable 'data' is an object!");
-    switch (data.isArray) {
-      case true:
+    switch (true) {
+      case data === null:
+        console.log("The variable 'data' is null!");
+        break;
+      case Array.isArray(data):
         console.log("The variable 'data' is an array!");
         break;
-      case false:
-        switch (data.isArray) {
-          case true:
-            console.log("The variable 'data' is an array!");
-            break;
-        }
+      default:
+        console.log("The variable 'data' is an object!");
     }
+    break;
   case "function":
     console.log("The variable 'data' is a function!");
     break;
-  case "unknown":
+  default:
     console.log("The variable 'data' is unknown!");
-    break;
 }
