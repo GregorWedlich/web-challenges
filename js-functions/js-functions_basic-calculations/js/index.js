@@ -27,7 +27,7 @@ function multiply(a, b) {
 
 function divide(a, b) {
   // Implement the division logic here
-  a / b;
+  return a / b;
 }
 
 function remainder(a, b) {
