@@ -26,6 +26,7 @@ function getGreeting() {
   // Code here
   const currentTime = new Date().getHours();
 
+  // Or with a switch, more ways to the goal
   if (currentTime >= 6 && currentTime <= 12) {
     return "Good Morning";
   }
