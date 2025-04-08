@@ -11,9 +11,9 @@ const imageSrc =
   "https://unsplash.com/photos/3VOTHTrE614/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU5NTM3NTA2&force=true&w=640";
 
 const newProduct = document.createElement("article");
+newProduct.className = "product";
 
 newProduct.innerHTML = `
-  <article class="product">
     <section class="product__body">
       <div class="product__text-container">
         <h2 class="product__name">${name}</h2>
@@ -32,7 +32,6 @@ newProduct.innerHTML = `
       <span class="product__price">${price}</span>
       <button type="button" class="product__buy-button">Buy</button>
     </footer>
-  </article>
 `;
 
 document.body.append(newProduct); // append to the end of body
