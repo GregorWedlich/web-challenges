@@ -25,6 +25,30 @@ form.addEventListener("submit", (event) => {
   let result;
 
   // --v-- write your code here --v--
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+  console.log(data);
+  const { numberA, numberB, operator } = data; // destructuring :-)
+
+  const num1 = Number(numberA);
+  const num2 = Number(numberB);
+
+  switch (operator) {
+    case "addition":
+      result = add(num1, num2);
+      break;
+    case "subtraction":
+      result = subtract(num1, num2);
+      break;
+    case "multiplication":
+      result = multiply(num1, num2);
+      break;
+    case "division":
+      result = divide(num1, num2);
+      break;
+    default:
+      result = "Invalid operation";
+  }
 
   // --^-- write your code here --^--
 
