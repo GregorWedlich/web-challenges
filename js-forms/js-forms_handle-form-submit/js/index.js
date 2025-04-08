@@ -1,6 +1,9 @@
 console.clear();
 
 const form = document.querySelector('[data-js="form"]');
+const firstNameInput = form.querySelector('input[name="firstName"]');
+
+firstNameInput.focus();
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -16,4 +19,7 @@ form.addEventListener("submit", (event) => {
       Number(data.age) + Number(data.badness)
     }`
   );
+
+  form.reset();
+  firstNameInput.focus();
 });
