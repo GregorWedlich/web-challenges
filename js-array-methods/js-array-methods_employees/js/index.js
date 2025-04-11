@@ -6,20 +6,41 @@ import { employees } from "../utils/db.js";
 // Check the browser preview and conduct some tests to ensure it works correctly.
 
 function findByLastName(employees, lastName) {
-  return null;
+  const trimmedLastName = lastName.trim();
 
-  // Exercise 2:
-  // The same as above, but now you are searching by the 'id'.
+  if (trimmedLastName === "") {
+    return [];
+  }
+
+  return employees.filter(
+    (employee) =>
+      employee.lastName.toLowerCase() === trimmedLastName.toLowerCase()
+  );
 }
+
+// Exercise 2:
+// The same as above, but now you are searching by the 'id'.
 function findById(employees, id) {
-  return null;
+  const foundById = employees.find(
+    (employee) => Number(employee.id) === Number(id)
+  );
+
+  return foundById || null;
 }
 
 // Exercise 3:
 // This time you want to find an employee who lives in a city that includes a specific substring.
 
 function findByCitySubString(employees, string) {
-  return null;
+  const trimmedString = string.trim();
+
+  if (trimmedString === "") {
+    return [];
+  }
+
+  return employees.filter((employee) =>
+    employee.city.toLowerCase().includes(trimmedString.toLowerCase())
+  );
 }
 
 // Bonus:
@@ -27,7 +48,20 @@ function findByCitySubString(employees, string) {
 // AND who is older than a specific age
 
 function findByProfessionSubStringAndAge(employees, string, age) {
-  return null;
+  const trimmedString = string.trim();
+  const trimmedAge = age.toString().trim();
+
+  if (trimmedString === "" || trimmedAge === "") {
+    return [];
+  }
+
+  const numericAge = Number(trimmedAge);
+
+  return employees.filter(
+    (employee) =>
+      employee.profession.toLowerCase().includes(trimmedString.toLowerCase()) &&
+      employee.age >= numericAge
+  );
 }
 
 // ------------------------------------------------------------------------------
@@ -46,9 +80,12 @@ const exercise4 = document.querySelector("[data-js='exercise4']");
 form1.addEventListener("submit", (event) => {
   event.preventDefault();
   exercise1.innerHTML = "";
-  const result = findByLastName(employees, event.target.exercise1.value);
-  if (result) {
-    exercise1.append(createCard(result));
+  const results = findByLastName(employees, event.target.exercise1.value);
+
+  if (results?.length > 0) {
+    results.forEach((employee) => {
+      exercise1.append(createCard(employee));
+    });
   } else {
     exercise1.textContent = "No results";
   }
@@ -66,12 +103,15 @@ form2.addEventListener("submit", (event) => {
 form3.addEventListener("submit", (event) => {
   event.preventDefault();
   exercise3.innerHTML = "";
-  const result =
+  const results =
     event.target.exercise3.value.trim() !== ""
       ? findByCitySubString(employees, event.target.exercise3.value)
       : null;
-  if (result) {
-    exercise3.append(createCard(result));
+
+  if (results?.length > 0) {
+    results.forEach((employee) => {
+      exercise3.append(createCard(employee));
+    });
   } else {
     exercise3.textContent = "No results";
   }
@@ -79,13 +119,16 @@ form3.addEventListener("submit", (event) => {
 form4.addEventListener("submit", (event) => {
   event.preventDefault();
   exercise4.innerHTML = "";
-  const result = findByProfessionSubStringAndAge(
+  const results = findByProfessionSubStringAndAge(
     employees,
     event.target.exercise4.value,
     event.target.exercise4b.value
   );
-  if (result) {
-    exercise4.append(createCard(result));
+
+  if (results.length > 0) {
+    results.forEach((employee) => {
+      exercise4.append(createCard(employee));
+    });
   } else {
     exercise4.textContent = "No results";
   }
