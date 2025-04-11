@@ -1,4 +1,3 @@
-// const body = document.querySelector("body");
 const colors = [
   "#343434",
   "#7FB5B5",
