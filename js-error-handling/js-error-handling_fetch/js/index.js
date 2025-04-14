@@ -7,6 +7,20 @@ const errorElement = document.querySelector("[data-js='error']");
 async function fetchUserData(url) {
   try {
     const response = await fetch(url);
+    const contentType = response.headers.get("content-type");
+
+    // console.log(response);
+
+    console.log(contentType);
+
+    if (!response.ok) {
+      // Throwing error code
+      throw new Error(`Error: ${response.status}`);
+    }
+
+    if (!contentType || !contentType.includes("application/json")) {
+      throw new Error(`Expect JSON_Data, but received: ${contentType}`);
+    }
 
     return await response.json();
   } catch (error) {
@@ -27,6 +41,7 @@ endpoints.forEach((endpoint) => {
   actionsElement.append(button);
 
   button.addEventListener("click", async () => {
+    errorElement.textContent = "";
     const result = await fetchUserData(endpoint.url);
 
     if (result.error) {
@@ -38,7 +53,6 @@ endpoints.forEach((endpoint) => {
       <img alt="${user.first_name} ${user.last_name}" src="${user.avatar}" class="user__image"/>
       <h2>${user.first_name} ${user.last_name}</h2>
       `;
-      errorElement.textContent = "";
     }
   });
 });
