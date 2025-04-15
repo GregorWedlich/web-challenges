@@ -13,6 +13,8 @@ async function fetchUserData(url) {
 
     console.log(contentType);
 
+    console.log(!response.ok);
+
     if (!response.ok) {
       // Throwing error code
       throw new Error(`Error: ${response.status}`);
