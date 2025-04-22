@@ -3,11 +3,15 @@ export default function App() {
 }
 
 function Button({ color, disabled, text }) {
+  function handleClick() {
+    alert("You clicked me!");
+  }
+
   return (
     <button
       style={{ backgroundColor: color }}
       disabled={disabled}
-      onClick={() => alert("You clicked me!")}
+      onClick={handleClick}
     >
       {text}
     </button>
