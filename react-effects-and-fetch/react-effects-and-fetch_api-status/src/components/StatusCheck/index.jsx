@@ -1,12 +1,25 @@
 import "./StatusCheck.css";
+import { useState } from "react";
 
 const apiStatusUrl = "https://example-apis.vercel.app/api/status";
 
 export default function StatusCheck() {
-  const statusIcon = "⁉️";
   // Something needs to change here…
   // ↙️
-  function handleCheckApiStatus() {
+  const [status, setStatus] = useState("?");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const statusIcon = isLoading
+    ? "⏳"
+    : error
+    ? "🚨"
+    : status === "up"
+    ? "✅"
+    : status === "down"
+    ? "❌"
+    : "❓";
+
+  async function handleCheckApiStatus() {
     /**
      * Hint 1:
      * Use the `fetch()` function to send a request to `apiStatusUrl`.
@@ -20,6 +33,24 @@ export default function StatusCheck() {
      * is okay and false if it is not.
      **/
     // --v-- write your code here --v--
+    setIsLoading(true);
+    setError(false);
+
+    try {
+      const response = await fetch(apiStatusUrl);
+      if (response.ok) {
+        console.log("API is up and running!");
+        setStatus("up");
+      } else {
+        console.log("API is down!");
+        setStatus("down");
+      }
+    } catch (error) {
+      console.error("Error fetching API:", error);
+      setError(true);
+    }
+    setIsLoading(false);
+
     // --^-- write your code here --^--
   }
 
