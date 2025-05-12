@@ -75,7 +75,7 @@ export default function ISSTracker() {
           <Controls
             longitude={longitude}
             latitude={latitude}
-            onRefresh={() => mutate()}
+            onRefresh={mutate}
           />
         </>
       )}
